@@ -3,7 +3,14 @@
     <style name="Base.Theme.Space" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="chipStyle">@style/myChipStyle</item>
     </style>
 
-    <style name="Theme.Space" parent="Base.Theme.Space" />
-</resources>
+
+    <style name="myChipStyle" parent="Widget.Material3.Chip.Suggestion">
+        <item name="chipBackgroundColor">@drawable/my_selector_background_chip</item>
+        <item name="rippleColor">#BE17E3</item>
+    </style>
+
+<style name="Theme.Space" parent="Base.Theme.Space" /></resources>

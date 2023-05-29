@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.PictureOfTheDayFragment">
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <com.google.android.material.chip.ChipGroup
+        app:singleSelection="true"
+        android:id="@+id/chipGroup"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="15dp">
 
-        <Button
-            android:id="@+id/button_first"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDayBeforeYesterday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next"
-            app:layout_constraintBottom_toTopOf="@id/imageView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text= "@string/dayBeforeYesterday"/>
 
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/imageView"
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipYesterday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/lorem_ipsum"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/button_first" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+            android:text= "@string/yesterday"/>
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/today"/>
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.example.space.utils.MyImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/picture_daily"
+        app:layout_constraintTop_toBottomOf="@id/chipGroup"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </View>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 
 import androidx.lifecycle.ViewModelProvider
 import coil.load
@@ -43,6 +44,17 @@ class PictureOfTheDayFragment : Fragment() {
             renderData(appState)
         }
         viewModel.sentRequest()
+
+        binding.chipToday.setOnClickListener {
+            Toast.makeText(context,"Today",Toast.LENGTH_SHORT).show()
+            //TODO
+        }
+        binding.chipYesterday.setOnClickListener{
+            //TODO
+        }
+        binding.chipDayBeforeYesterday.setOnClickListener{
+            //TODO
+        }
     }
 
     private fun renderData(appState: AppState) {
