@@ -4,7 +4,7 @@ package com.example.space.model
 import com.google.gson.annotations.SerializedName
 
 data class PictureOfTheDayResponseData(
-    val copyright: String,
+    val copyright: String = "",
     val date: String,
     val explanation: String,
     @SerializedName("hdurl")

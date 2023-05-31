@@ -10,7 +10,7 @@ class MyImageView @JvmOverloads constructor(
     defStyle: Int = 0
 ) : AppCompatImageView(context, attributeSet) {
 
-    /*override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+   /* override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, widthMeasureSpec)
     }*/
 }

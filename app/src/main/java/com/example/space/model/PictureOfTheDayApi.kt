@@ -11,4 +11,10 @@ interface PictureOfTheDayApi {
     @GET(NASA_API_END_POINT)
     fun getPictureOfTheDay(@Query(NASA_API_KEY_NAME) apiKey : String) : Call<PictureOfTheDayResponseData>
 
+    @GET(NASA_API_END_POINT)
+    fun getPictureOfTheDayYesterday(
+        @Query(NASA_API_KEY_NAME) apiKey : String,
+        @Query("date") date : String
+    ) : Call<PictureOfTheDayResponseData>
+
 }
