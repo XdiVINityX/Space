@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.settings.SettingsFragment">
+
+    <com.google.android.material.chip.ChipGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/darkTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Темная тема" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/lightTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Светлая тема" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/anotherTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Другая тема" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Тема">
+
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Тема">
+
+    </com.google.android.material.button.MaterialButton>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Тема">
+
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Тема">
+
+    </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Тема">
+
+    </com.google.android.material.button.MaterialButton>
+
+
+</LinearLayout>

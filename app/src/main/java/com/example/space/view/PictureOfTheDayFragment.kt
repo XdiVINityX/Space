@@ -3,15 +3,16 @@ package com.example.space.view
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import com.example.space.R
 import com.example.space.databinding.FragmentDailyPictureBinding
+import com.example.space.view.settings.SettingsFragment
 import com.example.space.viewmodel.AppState
 import com.example.space.viewmodel.PictureOfTheDayEnum
 import com.example.space.viewmodel.PictureOfTheDayViewModel
@@ -48,6 +49,34 @@ class PictureOfTheDayFragment : Fragment() {
         }
         viewModel.sentRequest(PictureOfTheDayEnum.TODAY)
         cheapOnClickRequest()
+
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.bottomAppBar)
+        setHasOptionsMenu(true)
+
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_main,menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.action_favorite ->{}
+            R.id.action_settings ->{
+                requireActivity()
+                .supportFragmentManager
+                .beginTransaction().hide(this)
+                .add(R.id.container,SettingsFragment.newInstance())
+                .addToBackStack("")
+                .commit()
+            }
+
+
+        }
+        return super.onOptionsItemSelected(item)
+
     }
 
     private fun cheapOnClickRequest() {
@@ -69,6 +98,8 @@ class PictureOfTheDayFragment : Fragment() {
                 data = Uri.parse("https://ru.wikipedia.org/wiki")
             })
         }
+
+        requireActivity()
     }
 
     private fun renderData(appState: AppState) {

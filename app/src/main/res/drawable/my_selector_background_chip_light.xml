@@ -4,9 +4,9 @@
     <item android:alpha="@dimen/material_emphasis_disabled_background"  android:color="#E49F9F" android:state_enabled="false"/>
 
     <!-- Selected -->
-    <item android:color="#0342FF" android:state_selected="true"/>
-    <item android:color="#D300F8" android:state_checked="true"/>
+    <item android:color="#F0F5F9" android:state_selected="true"/>
+    <item android:color="#F0F5F9" android:state_checked="true"/>
 
     <!-- Not selected -->
-    <item android:color="#ED4242" />
+    <item android:color="#293133" />
 </selector>

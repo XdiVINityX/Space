@@ -5,4 +5,5 @@
     <string name="yesterday">Вчера</string>
     <string name="today">Сегодня</string>
     <string name="dayBeforeYesterday">Позавчера</string>
+    <string name="action_favorite">favorite</string>
 </resources>

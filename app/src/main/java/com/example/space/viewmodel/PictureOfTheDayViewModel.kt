@@ -24,6 +24,8 @@ class PictureOfTheDayViewModel(
 
     fun sentRequest(enum: PictureOfTheDayEnum) {
 
+        //TODO Иногда приходит не изображение а видео, обработать этот вариант  к примеру. https://www.youtube.com/embed/X4UF9Akman0?rel=0%22
+
         when (enum) {
             PictureOfTheDayEnum.TODAY ->
                 repositoryImp
