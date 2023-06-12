@@ -31,6 +31,7 @@ class ViewPagerPictureOfTheDayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewPager.adapter = ViewPagerAdapter(childFragmentManager)
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
     }
 
     companion object {
