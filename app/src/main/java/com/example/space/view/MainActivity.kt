@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import com.example.space.R
 import com.example.space.databinding.ActivityMainBinding
+import com.example.space.view.viewpager.ViewPagerPictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,13 +19,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null)
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.container, ViewPagerPictureOfTheDayFragment.newInstance())
+                .commit()
+
+
+
+        /*if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.container, PictureOfTheDayFragment.newInstance())
                 .commit()
 
-        }
+        }*/
 
     }
 
