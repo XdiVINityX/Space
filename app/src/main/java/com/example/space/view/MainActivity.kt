@@ -19,26 +19,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (savedInstanceState == null)
+
+
+     /*   if (savedInstanceState == null)
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.container, ViewPagerPictureOfTheDayFragment.newInstance())
-                .commit()
+                .commit()*/
 
 
 
-        /*if (savedInstanceState == null) {
+        if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.container, PictureOfTheDayFragment.newInstance())
                 .commit()
 
-        }*/
+        }
 
     }
 
     private fun setThemeFromPreferences() {
-        val defaultTheme = R.style.Base_Theme_Space
+        val defaultTheme = R.style.Base_Theme_SpaceLight
         val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this)
         val themeName  = sharedPreferences.getInt("themeKey",defaultTheme)
         setTheme(themeName)

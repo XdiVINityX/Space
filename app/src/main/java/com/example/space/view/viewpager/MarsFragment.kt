@@ -1,5 +1,6 @@
 package com.example.space.view.viewpager
 
+import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,6 +13,8 @@ import com.example.space.databinding.FragmentMarsBinding
 import com.example.space.viewmodel.MarsViewModel
 
 class MarsFragment : Fragment() {
+
+
     private var _binding: FragmentMarsBinding? = null
     private val binding get() = _binding!!
 

@@ -13,6 +13,7 @@ import coil.load
 import com.example.space.R
 import com.example.space.databinding.FragmentDailyPictureBinding
 import com.example.space.view.settings.SettingsFragment
+import com.example.space.view.viewpager.EarthFragment
 import com.example.space.viewmodel.AppState
 import com.example.space.viewmodel.PictureOfTheDayEnum
 import com.example.space.viewmodel.PictureOfTheDayViewModel
@@ -20,7 +21,7 @@ import com.example.space.viewmodel.PictureOfTheDayViewModel
 
 class PictureOfTheDayFragment : Fragment() {
 
-    companion object{
+    companion object {
         fun newInstance() = PictureOfTheDayFragment()
     }
 
@@ -35,7 +36,7 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentDailyPictureBinding.inflate(inflater, container, false)
         return binding.root
@@ -44,39 +45,33 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getLiveData().observe(viewLifecycleOwner) {appState ->
+        viewModel.getLiveData().observe(viewLifecycleOwner) { appState ->
             renderData(appState)
         }
         viewModel.sentRequest(PictureOfTheDayEnum.TODAY)
         cheapOnClickRequest()
-
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.bottomAppBar)
-        setHasOptionsMenu(true)
-
+        bottomNavigationViewOnClick()
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.menu_main,menu)
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId){
-            R.id.action_favorite ->{}
-            R.id.action_settings ->{
-                requireActivity()
-                .supportFragmentManager
-                .beginTransaction().hide(this)
-                .add(R.id.container,SettingsFragment.newInstance())
-                .addToBackStack("")
-                .commit()
+    private fun bottomNavigationViewOnClick(){
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.action_settings ->{navigateTo(SettingsFragment()); true}
+               else -> true
+
             }
-
-
         }
-        return super.onOptionsItemSelected(item)
 
+    }
+    private fun navigateTo(fragment: Fragment){
+        requireActivity()
+            .supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container,fragment)
+            .addToBackStack("")
+            .commit()
     }
 
     private fun cheapOnClickRequest() {
@@ -93,20 +88,15 @@ class PictureOfTheDayFragment : Fragment() {
             viewModel.sentRequest(PictureOfTheDayEnum.DAY_BEFORE_YESTERDAY)
         }
 
-        binding.textInput.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://ru.wikipedia.org/wiki")
-            })
-        }
-
         requireActivity()
     }
 
     private fun renderData(appState: AppState) {
         when (appState) {
-            AppState.Loading ->{
+            AppState.Loading -> {
                 Toast.makeText(context, "Загрузка...", Toast.LENGTH_LONG).show()
             }
+
             is AppState.Success -> {
                 val url = appState.pictureOfTheDayResponseData.url
                 binding.imageView.load(url)
@@ -114,11 +104,10 @@ class PictureOfTheDayFragment : Fragment() {
             }
 
 
-            is AppState.Error ->{
+            is AppState.Error -> {
                 //TODO()
             }
 
-            else -> {}
         }
     }
 

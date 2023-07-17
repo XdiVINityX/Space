@@ -1,9 +1,10 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!--светлая тема-->
     <style name="Base.Theme.SpaceLight" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">#E3D2DB</item>
         <item name="chipStyle">@style/myChipStyleLight</item>
         <item name="materialButtonStyle">@style/myButtonStyleLight</item>
+
 
     </style>
 
@@ -24,14 +25,14 @@
     <!--Темная тема-->
 
     <style name="Base.Theme.SpaceDark" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="chipStyle">@style/myChipStyle</item>
+        <item name="chipStyle">@style/myChipStyleDark</item>
         <item name="materialButtonStyle">@style/myButtonStyle</item>
         <item name="android:windowBackground">#6E5160</item>
 
     </style>
 
 
-    <style name="myChipStyle" parent="Widget.Material3.Chip.Suggestion">
+    <style name="myChipStyleDark" parent="Widget.Material3.Chip.Suggestion">
         <item name="chipBackgroundColor">@drawable/my_selector_background_chip_dark</item>
         <item name="rippleColor">#6E5160</item>
         <item name="backgroundColor">#464451</item>

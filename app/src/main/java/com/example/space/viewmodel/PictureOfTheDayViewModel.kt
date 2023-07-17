@@ -55,7 +55,7 @@ class PictureOfTheDayViewModel(
                 //Это ответ(удачный) - response.body()!!
                 liveData.postValue(AppState.Success(response.body()!!))
             } else {
-                liveData.postValue(AppState.Error(throw IllegalStateException("Пришел не верный ответ")))
+                liveData.postValue(AppState.Error(throw IllegalStateException("Пришел неверный ответ")))
             }
 
 
