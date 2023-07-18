@@ -1,6 +1,5 @@
 package com.example.space.viewmodel
 
-import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.space.BuildConfig
@@ -36,12 +35,12 @@ class PictureOfTheDayViewModel(
             PictureOfTheDayEnum.YESTERDAY ->
                 repositoryImp
                     .getPictureOfTheDayApi()
-                    .getPictureOfTheDayYesterday(BuildConfig.NASA_API_KEY, dateProviderImp.getYesterday())
+                    .getPictureOfTheDayWithDate(BuildConfig.NASA_API_KEY, dateProviderImp.getYesterday())
                     .enqueue(callback)
             PictureOfTheDayEnum.DAY_BEFORE_YESTERDAY ->
                 repositoryImp
                     .getPictureOfTheDayApi()
-                    .getPictureOfTheDayYesterday(BuildConfig.NASA_API_KEY, dateProviderImp.getDayBeforeYesterday())
+                    .getPictureOfTheDayWithDate(BuildConfig.NASA_API_KEY, dateProviderImp.getDayBeforeYesterday())
                     .enqueue(callback)
         }
     }

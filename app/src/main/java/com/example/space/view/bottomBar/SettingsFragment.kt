@@ -1,6 +1,5 @@
-package com.example.space.view.settings
+package com.example.space.view.bottomBar
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater

@@ -4,7 +4,6 @@ import com.example.space.NASA_API_BASE_URL
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 class RepositoryImp : Repository {
 
@@ -18,7 +17,7 @@ class RepositoryImp : Repository {
             .build()
     }
 
-    fun getPictureOfTheDayApi():PictureOfTheDayApi{
+    fun getPictureOfTheDayApi(): PictureOfTheDayApi {
         return retrofit.create(PictureOfTheDayApi::class.java)
     }
 

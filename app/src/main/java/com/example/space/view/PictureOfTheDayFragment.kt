@@ -1,19 +1,16 @@
 package com.example.space.view
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.space.R
 import com.example.space.databinding.FragmentDailyPictureBinding
-import com.example.space.view.settings.SettingsFragment
-import com.example.space.view.viewpager.EarthFragment
+import com.example.space.view.bottomBar.MarsRoversFragment
+import com.example.space.view.bottomBar.SettingsFragment
 import com.example.space.viewmodel.AppState
 import com.example.space.viewmodel.PictureOfTheDayEnum
 import com.example.space.viewmodel.PictureOfTheDayViewModel
@@ -37,7 +34,6 @@ class PictureOfTheDayFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         _binding = FragmentDailyPictureBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -59,6 +55,7 @@ class PictureOfTheDayFragment : Fragment() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
                 R.id.action_settings ->{navigateTo(SettingsFragment()); true}
+                R.id.action_view_mars ->{navigateTo(MarsRoversFragment());true}
                else -> true
 
             }

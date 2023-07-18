@@ -12,7 +12,7 @@ interface PictureOfTheDayApi {
     fun getPictureOfTheDay(@Query(NASA_API_KEY_NAME) apiKey : String) : Call<PictureOfTheDayResponseData>
 
     @GET(NASA_API_END_POINT)
-    fun getPictureOfTheDayYesterday(
+    fun getPictureOfTheDayWithDate(
         @Query(NASA_API_KEY_NAME) apiKey : String,
         @Query("date") date : String
     ) : Call<PictureOfTheDayResponseData>

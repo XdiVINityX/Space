@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.settings.SettingsFragment">
+    tools:context=".view.bottomBar.SettingsFragment">
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup"
@@ -40,6 +40,7 @@
 
 
     <com.google.android.material.button.MaterialButton
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/chipGroup"
