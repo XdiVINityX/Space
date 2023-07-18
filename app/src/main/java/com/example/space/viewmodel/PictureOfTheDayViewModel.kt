@@ -3,9 +3,9 @@ package com.example.space.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.space.BuildConfig
-import com.example.space.model.DataProviderImpl
-import com.example.space.model.PictureOfTheDayResponseData
-import com.example.space.model.RepositoryImp
+import com.example.space.utils.DataProviderImpl
+import com.example.space.model.pictureOfTheDay.PictureOfTheDayResponseData
+import com.example.space.repositorys.RepositoryImp
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -56,8 +56,6 @@ class PictureOfTheDayViewModel(
             } else {
                 liveData.postValue(AppState.Error(throw IllegalStateException("Пришел неверный ответ")))
             }
-
-
         }
 
         override fun onFailure(call: Call<PictureOfTheDayResponseData>, t: Throwable) {

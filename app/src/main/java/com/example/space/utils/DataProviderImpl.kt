@@ -1,4 +1,4 @@
-package com.example.space.model
+package com.example.space.utils
 
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter

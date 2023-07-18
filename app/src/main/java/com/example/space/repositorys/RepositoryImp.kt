@@ -1,6 +1,7 @@
-package com.example.space.model
+package com.example.space.repositorys
 
 import com.example.space.NASA_API_BASE_URL
+import com.example.space.api.PictureOfTheDayApi
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -17,7 +18,7 @@ class RepositoryImp : Repository {
             .build()
     }
 
-    fun getPictureOfTheDayApi(): PictureOfTheDayApi {
+    override fun getPictureOfTheDayApi(): PictureOfTheDayApi {
         return retrofit.create(PictureOfTheDayApi::class.java)
     }
 

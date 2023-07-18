@@ -1,7 +1,8 @@
-package com.example.space.model
+package com.example.space.api
 
 import com.example.space.NASA_API_END_POINT
 import com.example.space.NASA_API_KEY_NAME
+import com.example.space.model.pictureOfTheDay.PictureOfTheDayResponseData
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

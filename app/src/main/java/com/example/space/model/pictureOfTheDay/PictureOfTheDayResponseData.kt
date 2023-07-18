@@ -1,4 +1,4 @@
-package com.example.space.model
+package com.example.space.model.pictureOfTheDay
 
 
 import com.google.gson.annotations.SerializedName

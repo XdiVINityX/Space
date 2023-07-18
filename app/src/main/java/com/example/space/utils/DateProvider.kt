@@ -1,4 +1,4 @@
-package com.example.space.model
+package com.example.space.utils
 
 interface DateProvider {
 

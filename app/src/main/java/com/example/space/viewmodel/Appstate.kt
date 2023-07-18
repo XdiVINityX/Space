@@ -1,6 +1,6 @@
 package com.example.space.viewmodel
 
-import com.example.space.model.PictureOfTheDayResponseData
+import com.example.space.model.pictureOfTheDay.PictureOfTheDayResponseData
 
 sealed class AppState{
     data class Success(val pictureOfTheDayResponseData : PictureOfTheDayResponseData) : AppState()

@@ -60,7 +60,6 @@ class PictureOfTheDayFragment : Fragment() {
 
             }
         }
-
     }
     private fun navigateTo(fragment: Fragment){
         requireActivity()
@@ -72,7 +71,6 @@ class PictureOfTheDayFragment : Fragment() {
     }
 
     private fun cheapOnClickRequest() {
-
         binding.chipToday.setOnClickListener {
             viewModel.sentRequest(PictureOfTheDayEnum.TODAY)
             Toast.makeText(context, "Изображение согодняшнего дня!", Toast.LENGTH_SHORT).show()
@@ -85,7 +83,6 @@ class PictureOfTheDayFragment : Fragment() {
             viewModel.sentRequest(PictureOfTheDayEnum.DAY_BEFORE_YESTERDAY)
         }
 
-        requireActivity()
     }
 
     private fun renderData(appState: AppState) {
