@@ -1,24 +1,33 @@
 package com.example.space.model.marsRoverPhotos
+import com.google.gson.annotations.SerializedName
 
 
 data class Perseverance(
-    val photo_manifest: PhotoManifest
-)
-
-data class PhotoManifest(
-    val landing_date: String,
-    val launch_date: String,
-    val max_date: String,
-    val max_sol: Int,
-    val name: String,
-    val photos: List<Photo>,
-    val status: String,
-    val total_photos: Int
-)
-
-data class Photo(
-    val cameras: List<String>,
-    val earth_date: String,
-    val sol: Int,
-    val total_photos: Int
-)
+    @SerializedName("photo_manifest")
+    val photoManifest: PhotoManifest
+) {
+    data class PhotoManifest(
+        val name: String,
+        @SerializedName("landing_date")
+        val landingDate: String,
+        @SerializedName("launch_date")
+        val launchDate: String,
+        val status: String,
+        @SerializedName("max_sol")
+        val maxSol: Int,
+        @SerializedName("max_date")
+        val maxDate: String,
+        @SerializedName("total_photos")
+        val totalPhotos: Int,
+        val photos: List<Photo>
+    ) {
+        data class Photo(
+            val sol: Int,
+            @SerializedName("earth_date")
+            val earthDate: String,
+            @SerializedName("total_photos")
+            val totalPhotos: Int,
+            val cameras: List<String>
+        )
+    }
+}

@@ -14,7 +14,9 @@ class MarsRoversFragment : Fragment() {
     private var _binding: FragmentMarsRoversBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: MarsRoversViewModel
+    private val viewModel: MarsRoversViewModel by lazy {
+        ViewModelProvider(this).get(MarsRoversViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,12 +24,6 @@ class MarsRoversFragment : Fragment() {
     ): View {
         _binding = FragmentMarsRoversBinding.inflate(inflater,container,false)
         return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MarsRoversViewModel::class.java)
-        // TODO: Use the ViewModel
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

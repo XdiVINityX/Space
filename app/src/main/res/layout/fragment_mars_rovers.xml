@@ -10,14 +10,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:layout_margin="8dp"
                 android:text="Perseverance">
             </TextView>
 
@@ -27,6 +29,22 @@
                 android:layout_margin="10dp"
                 android:src="@drawable/perseverance_rover">
             </ImageView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Max Sol:">
+
+            </TextView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Max date:">
+            </TextView>
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

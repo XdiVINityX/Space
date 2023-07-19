@@ -1,14 +1,12 @@
-package com.example.space.repositorys
+package com.example.space.Retrofit
 
 import com.example.space.NASA_API_BASE_URL
-import com.example.space.api.PictureOfTheDayApi
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class RepositoryImp : Repository {
 
-
+object RetrofitClient {
     private val retrofit by lazy {
         Retrofit.Builder()
             .baseUrl(NASA_API_BASE_URL)
@@ -18,8 +16,10 @@ class RepositoryImp : Repository {
             .build()
     }
 
-    override fun getPictureOfTheDayApi(): PictureOfTheDayApi {
-        return retrofit.create(PictureOfTheDayApi::class.java)
+    fun <T> createService(serviceClass : Class<T>) : T {
+        return retrofit.create(serviceClass)
     }
-
 }
+
+
+

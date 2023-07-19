@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModel
 import com.example.space.BuildConfig
 import com.example.space.utils.DataProviderImpl
 import com.example.space.model.pictureOfTheDay.PictureOfTheDayResponseData
-import com.example.space.repositorys.RepositoryImp
+import com.example.space.repositorys.pictureOfTheDay.RepositoryPictureOfTheDayImp
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class PictureOfTheDayViewModel(
-    private val repositoryImp: RepositoryImp = RepositoryImp(),
+    private val repositoryImp: RepositoryPictureOfTheDayImp = RepositoryPictureOfTheDayImp(),
     private val liveData: MutableLiveData<AppState> = MutableLiveData<AppState>(),
     private val dateProviderImp : DataProviderImpl = DataProviderImpl()
 ) : ViewModel() {
