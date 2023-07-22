@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.space.R
 import com.example.space.databinding.FragmentDailyPictureBinding
-import com.example.space.view.bottomBar.MarsRoversFragment
-import com.example.space.view.bottomBar.SettingsFragment
-import com.example.space.viewmodel.AppState
+import com.example.space.view.bottomBar.mars.MarsRoversFragment
+import com.example.space.view.bottomBar.settings.SettingsFragment
+import com.example.space.viewmodel.appState.AppStatePictureOfTheDay
 import com.example.space.viewmodel.PictureOfTheDayEnum
 import com.example.space.viewmodel.PictureOfTheDayViewModel
 
@@ -85,20 +85,20 @@ class PictureOfTheDayFragment : Fragment() {
 
     }
 
-    private fun renderData(appState: AppState) {
+    private fun renderData(appState: AppStatePictureOfTheDay) {
         when (appState) {
-            AppState.Loading -> {
+            AppStatePictureOfTheDay.Loading -> {
                 Toast.makeText(context, "Загрузка...", Toast.LENGTH_LONG).show()
             }
 
-            is AppState.Success -> {
+            is AppStatePictureOfTheDay.Success -> {
                 val url = appState.pictureOfTheDayResponseData.url
                 binding.imageView.load(url)
                 Toast.makeText(context, url, Toast.LENGTH_LONG).show()
             }
 
 
-            is AppState.Error -> {
+            is AppStatePictureOfTheDay.Error -> {
                 //TODO()
             }
 

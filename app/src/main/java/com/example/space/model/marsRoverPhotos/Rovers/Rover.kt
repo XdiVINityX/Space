@@ -1,4 +1,4 @@
-package com.example.space.model.marsRoverPhotos
+package com.example.space.model.marsRoverPhotos.Rovers
 
 data class Rover(
     val cameras: List<Camera>,

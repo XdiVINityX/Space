@@ -1,4 +1,4 @@
-package com.example.space.view.bottomBar
+package com.example.space.view.bottomBar.settings
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

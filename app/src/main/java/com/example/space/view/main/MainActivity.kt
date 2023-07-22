@@ -1,11 +1,11 @@
-package com.example.space.view
+package com.example.space.view.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import com.example.space.R
 import com.example.space.databinding.ActivityMainBinding
-import com.example.space.view.viewpager.ViewPagerPictureOfTheDayFragment
+import com.example.space.view.PictureOfTheDayFragment
 
 class MainActivity : AppCompatActivity() {
 

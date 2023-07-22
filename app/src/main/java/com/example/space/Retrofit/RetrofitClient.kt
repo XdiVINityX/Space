@@ -1,6 +1,7 @@
 package com.example.space.Retrofit
 
 import com.example.space.NASA_API_BASE_URL
+import com.example.space.api.BaseApiInterface
 import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,7 +17,7 @@ object RetrofitClient {
             .build()
     }
 
-    fun <T> createService(serviceClass : Class<T>) : T {
+    fun <T : BaseApiInterface> createService(serviceClass : Class<T>) : T {
         return retrofit.create(serviceClass)
     }
 }

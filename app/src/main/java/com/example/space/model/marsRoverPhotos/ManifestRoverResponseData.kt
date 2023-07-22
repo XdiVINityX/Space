@@ -2,7 +2,7 @@ package com.example.space.model.marsRoverPhotos
 import com.google.gson.annotations.SerializedName
 
 
-data class Perseverance(
+data class ManifestRoverResponseData(
     @SerializedName("photo_manifest")
     val photoManifest: PhotoManifest
 ) {

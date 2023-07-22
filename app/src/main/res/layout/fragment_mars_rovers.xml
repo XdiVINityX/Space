@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.bottomBar.MarsRoversFragment">
+    tools:context=".view.bottomBar.mars.MarsRoversFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/roverPerseverance"
@@ -31,19 +31,21 @@
             </ImageView>
 
             <TextView
+                android:id="@+id/maxSolPerseverance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Max Sol:">
+                android:text="Max Sol: ">
 
             </TextView>
             <TextView
+                android:id="@+id/maxDatePerseverance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Max date:">
+                android:text="Max date: ">
             </TextView>
 
         </LinearLayout>
