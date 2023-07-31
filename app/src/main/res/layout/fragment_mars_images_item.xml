@@ -38,13 +38,13 @@
                 android:layout_height="wrap_content">
             </TextView>
 
-            <ImageView
+            <com.github.chrisbanes.photoview.PhotoView
                 android:layout_margin="8dp"
-                android:id="@+id/photoOfSolByRover"
+                android:id="@+id/photoViewOfSolByRover"
                 android:layout_width="wrap_content"
                 android:layout_height="400dp"
-                android:src="@drawable/placeholder">
-            </ImageView>
+                android:src="@drawable/placeholder"/>
+
 
 
         </androidx.appcompat.widget.LinearLayoutCompat>

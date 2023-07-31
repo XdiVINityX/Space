@@ -1,5 +1,6 @@
 package com.example.space.view.bottomBar.mars.secondLevelOfDetail_Images
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,9 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
 import com.example.space.R
-import com.example.space.model.marsRoverPhotos.ManifestRoverResponseData
 import com.example.space.model.marsRoverPhotos.photos.Photo
 import com.example.space.model.marsRoverPhotos.photos.PhotosOfSolByRoverResponseData
+import com.github.chrisbanes.photoview.PhotoView
 
 class ImageBySolOfRoverAdapter : Adapter<ImageBySolOfRoverAdapter.ImageHolder>() {
 
@@ -36,15 +37,17 @@ class ImageBySolOfRoverAdapter : Adapter<ImageBySolOfRoverAdapter.ImageHolder>()
     override fun onBindViewHolder(holder: ImageHolder, position: Int) {
         holder.render(photoList[position])
 
+            // val photoView = holder.itemView.findViewById<PhotoView>(R.id.photo_view)
+        //val imageUrl = "https://example.com/image.jpg"
+
     }
 
     inner class ImageHolder(itemView: View) : ViewHolder(itemView) {
         fun render(photo: Photo){
-            itemView.findViewById<ImageView>(R.id.photoOfSolByRover).load(photo.img_src)
+
+            itemView.findViewById<PhotoView>(R.id.photoViewOfSolByRover).load(photo.img_src)
             itemView.findViewById<TextView>(R.id.solOfPhoto).text = photo.sol.toString()
             itemView.findViewById<TextView>(R.id.dataOfPhoto).text = photo.earth_date.toString()
-
-
         }
 
     }

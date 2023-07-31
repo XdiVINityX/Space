@@ -18,4 +18,6 @@
         tools:listitem="@layout/fragment_mars_images_item">
     </androidx.recyclerview.widget.RecyclerView>
 
+    
+
 </FrameLayout>
