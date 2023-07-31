@@ -1,4 +1,5 @@
-package com.example.space.view.bottomBar.mars
+package com.example.space.view.bottomBar.mars.firstLevelOflDetail_Sol
+
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,16 +10,18 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.space.R
 import com.example.space.model.marsRoverPhotos.ManifestRoverResponseData
 
-class RoverSolAdapter : RecyclerView.Adapter<RoverSolAdapter.RoverSolHolder>() {
+class RoverSolAdapter() : RecyclerView.Adapter<RoverSolAdapter.RoverSolHolder>() {
 
-    private lateinit var manifestRoverData:ManifestRoverResponseData
+    private lateinit var manifestRoverDataPhotos : List<ManifestRoverResponseData.PhotoManifest.Photo>
+    private lateinit var listener: OnItemViewClickListener
 
-   // private var solList = (1..1000).toList()
-
-    fun setManifestData(value : ManifestRoverResponseData )  {
-       manifestRoverData = value
+    fun setManifestDataPhotosReversed(value : ManifestRoverResponseData.PhotoManifest) {
+       manifestRoverDataPhotos = value.photos.reversed()
     }
 
+    fun setClickOnInItemListener(fragmentMain : OnItemViewClickListener){
+        listener = fragmentMain
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoverSolHolder {
         return RoverSolHolder(
@@ -28,20 +31,26 @@ class RoverSolAdapter : RecyclerView.Adapter<RoverSolAdapter.RoverSolHolder>() {
     }
 
     override fun onBindViewHolder(holder: RoverSolHolder, position: Int) {
-        holder.render(manifestRoverData.photoManifest.photos[position])
+
+        holder.render(manifestRoverDataPhotos[position])
     }
 
     inner class RoverSolHolder(itemView: View) : ViewHolder(itemView) {
+
         fun render(photoElement: ManifestRoverResponseData.PhotoManifest.Photo) {
             itemView.findViewById<TextView>(R.id.roverSol).text = "Sol: ${(photoElement.sol.toString())} "
             itemView.findViewById<TextView>(R.id.roverDateOfMission).text = "Date: ${(photoElement.earthDate.toString())} "
             itemView.findViewById<TextView>(R.id.roverNumbersOfPhoto).text = "Numbers of photo: ${(photoElement.totalPhotos.toString())} "
+            itemView.setOnClickListener(){
+                listener.onItemClickNewInstanceDetail(photoElement)
+            }
 
         }
+
     }
 
     override fun getItemCount(): Int {
-        return manifestRoverData.photoManifest.photos.size
+        return manifestRoverDataPhotos.size
     }
 
 

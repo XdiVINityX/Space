@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.bottomBar.mars.MarsRoversFragment">
+    tools:context=".view.bottomBar.mars.main.MainMarsRoversFragment">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/roverPerseverance"

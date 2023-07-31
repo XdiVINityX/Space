@@ -21,6 +21,7 @@ data class ManifestRoverResponseData(
         val totalPhotos: Int,
         val photos: List<Photo>
     ) {
+
         data class Photo(
             val sol: Int,
             @SerializedName("earth_date")
@@ -30,4 +31,5 @@ data class ManifestRoverResponseData(
             val cameras: List<String>
         )
     }
+
 }

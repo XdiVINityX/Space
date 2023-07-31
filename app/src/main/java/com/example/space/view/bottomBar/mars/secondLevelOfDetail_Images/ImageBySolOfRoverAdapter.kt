@@ -1,0 +1,56 @@
+package com.example.space.view.bottomBar.mars.secondLevelOfDetail_Images
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView.Adapter
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import coil.load
+import com.example.space.R
+import com.example.space.model.marsRoverPhotos.ManifestRoverResponseData
+import com.example.space.model.marsRoverPhotos.photos.Photo
+import com.example.space.model.marsRoverPhotos.photos.PhotosOfSolByRoverResponseData
+
+class ImageBySolOfRoverAdapter : Adapter<ImageBySolOfRoverAdapter.ImageHolder>() {
+
+    private lateinit var photoList : List<Photo>
+
+    fun setImageList(data : PhotosOfSolByRoverResponseData){
+        photoList = data.photos
+    }
+
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageHolder {
+        return ImageHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.fragment_mars_images_item,parent,false)
+            )
+
+    }
+
+
+
+    override fun onBindViewHolder(holder: ImageHolder, position: Int) {
+        holder.render(photoList[position])
+
+    }
+
+    inner class ImageHolder(itemView: View) : ViewHolder(itemView) {
+        fun render(photo: Photo){
+            itemView.findViewById<ImageView>(R.id.photoOfSolByRover).load(photo.img_src)
+            itemView.findViewById<TextView>(R.id.solOfPhoto).text = photo.sol.toString()
+            itemView.findViewById<TextView>(R.id.dataOfPhoto).text = photo.earth_date.toString()
+
+
+        }
+
+    }
+
+
+    override fun getItemCount(): Int {
+       return photoList.size
+    }
+}

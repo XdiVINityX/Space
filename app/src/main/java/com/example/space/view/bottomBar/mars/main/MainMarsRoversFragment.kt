@@ -1,4 +1,4 @@
-package com.example.space.view.bottomBar.mars
+package com.example.space.view.bottomBar.mars.main
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,13 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.space.R
-import com.example.space.databinding.FragmentMarsRoversBinding
+import com.example.space.databinding.FragmentMainMarsRoversBinding
+import com.example.space.view.bottomBar.mars.firstLevelOflDetail_Sol.MarsSolOfRoverFragment
 import com.example.space.viewmodel.MarsRoversViewModel
 import com.example.space.viewmodel.appState.AppStateRovers
 
-class MarsRoversFragment : Fragment() {
+class MainMarsRoversFragment : Fragment() {
 
-    private var _binding: FragmentMarsRoversBinding? = null
+    private var _binding: FragmentMainMarsRoversBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: MarsRoversViewModel by lazy {
@@ -25,7 +26,7 @@ class MarsRoversFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentMarsRoversBinding.inflate(inflater,container,false)
+        _binding = FragmentMainMarsRoversBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -49,7 +50,7 @@ class MarsRoversFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance() = MarsRoversFragment()
+        fun newInstance() = MainMarsRoversFragment()
     }
 
     override fun onDestroyView() {

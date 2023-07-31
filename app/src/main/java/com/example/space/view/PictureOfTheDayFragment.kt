@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.example.space.R
 import com.example.space.databinding.FragmentDailyPictureBinding
-import com.example.space.view.bottomBar.mars.MarsRoversFragment
+import com.example.space.view.bottomBar.mars.main.MainMarsRoversFragment
 import com.example.space.view.bottomBar.settings.SettingsFragment
 import com.example.space.viewmodel.appState.AppStatePictureOfTheDay
 import com.example.space.viewmodel.PictureOfTheDayEnum
@@ -54,8 +54,12 @@ class PictureOfTheDayFragment : Fragment() {
     private fun bottomNavigationViewOnClick(){
         binding.bottomNavigationView.setOnItemSelectedListener {
             when(it.itemId){
-                R.id.action_settings ->{navigateTo(SettingsFragment()); true}
-                R.id.action_view_mars ->{navigateTo(MarsRoversFragment());true}
+                R.id.action_settings ->{
+                    navigateTo(SettingsFragment());true
+                }
+                R.id.action_view_mars ->{
+                    navigateTo(MainMarsRoversFragment());true
+                }
                else -> true
 
             }
