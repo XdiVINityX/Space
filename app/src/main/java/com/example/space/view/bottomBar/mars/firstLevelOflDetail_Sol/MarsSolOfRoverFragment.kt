@@ -63,14 +63,9 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
     }
 
     companion object {
-        fun newInstance() = MarsSolOfRoverFragment
+        fun newInstance() = MarsSolOfRoverFragment()
     }
 
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
     override fun onItemClickNewInstanceDetail(photo: ManifestRoverResponseData.PhotoManifest.Photo) {
         val bundle = Bundle()
@@ -81,6 +76,12 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
             .addToBackStack("")
             .add(R.id.container, MarsImagesFragment.newInstance(bundle))
             .commit()
+    }
+
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
 }

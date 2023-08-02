@@ -2,18 +2,19 @@ package com.example.space.view.bottomBar.mars.secondLevelOfDetail_Images
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.space.R
 import com.example.space.databinding.FragmentMarsImagesBinding
-import com.example.space.model.marsRoverPhotos.ManifestRoverResponseData
+import com.example.space.model.marsRoverPhotos.photos.Photo
+import com.example.space.model.marsRoverPhotos.photos.PhotosOfSolByRoverResponseData
+import com.example.space.view.bottomBar.mars.thirdLevel_PhotoView.PhotoViewContainerFragment
 import com.example.space.viewmodel.MarsImagesViewModel
 import com.example.space.viewmodel.appState.AppStatePhotosOfSolByRover
 
-class MarsImagesFragment : Fragment() {
+class MarsImagesFragment : Fragment(), OnPhotoViewClickListener{
 
 
     private var _binding : FragmentMarsImagesBinding? = null
@@ -39,8 +40,6 @@ class MarsImagesFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
-
         viewModel.getLiveData().observe(viewLifecycleOwner){
             render(it)
         }
@@ -54,6 +53,7 @@ class MarsImagesFragment : Fragment() {
 
             is AppStatePhotosOfSolByRover.Success -> {
                 adapter.setImageList(appStatePhotosOfSolByRover.photosOfSolByRoverResponseData)
+                adapter.setListener(this@MarsImagesFragment)
                 binding.recyclerPhotoOfSolByRover.adapter = adapter
 
             }
@@ -62,6 +62,18 @@ class MarsImagesFragment : Fragment() {
             AppStatePhotosOfSolByRover.Loading -> TODO()
 
         }
+    }
+
+
+    override fun onPhotoClickListener(photo: Photo) {
+        val url = photo.img_src
+        val bundle = Bundle()
+        bundle.putString(PhotoViewContainerFragment.BUNDLE_KEY,url)
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .addToBackStack("")
+            .add(R.id.container,PhotoViewContainerFragment.newInstance(bundle))
+            .commit()
     }
 
     companion object {
@@ -73,5 +85,14 @@ class MarsImagesFragment : Fragment() {
         const val BUNDLE_KEY = "key"
 
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+
+
+
 
 }
