@@ -37,19 +37,18 @@ class ImageBySolOfRoverAdapter : Adapter<ImageBySolOfRoverAdapter.ImageHolder>()
     override fun onBindViewHolder(holder: ImageHolder, position: Int) {
         holder.render(photoList[position])
 
-            // val photoView = holder.itemView.findViewById<PhotoView>(R.id.photo_view)
-        //val imageUrl = "https://example.com/image.jpg"
+
 
     }
 
     inner class ImageHolder(itemView: View) : ViewHolder(itemView) {
         fun render(photo: Photo){
 
-            itemView.findViewById<PhotoView>(R.id.photoViewOfSolByRover).load(photo.img_src)
-            itemView.findViewById<TextView>(R.id.solOfPhoto).text = photo.sol.toString()
-            itemView.findViewById<TextView>(R.id.dataOfPhoto).text = photo.earth_date.toString()
+            itemView.findViewById<ImageView>(R.id.ImageViewOfSolByRover).load(photo.img_src)
+            itemView.findViewById<TextView>(R.id.solOfPhoto).text = "Sol: ${photo.sol.toString()}"
+            itemView.findViewById<TextView>(R.id.dataOfPhoto).text ="Data: ${photo.earth_date.toString()}"
+            itemView.findViewById<TextView>(R.id.roverName).text = photo.rover.name
         }
-
     }
 
 

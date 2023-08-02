@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
+
         android:layout_margin="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -17,6 +18,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:gravity="center"
                 android:id="@+id/roverName"
                 android:text="RoverName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -24,6 +26,7 @@
                 android:layout_height="wrap_content">
             </TextView>
             <TextView
+                android:paddingStart="16dp"
                 android:id="@+id/solOfPhoto"
                 android:text="Sol"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -31,6 +34,7 @@
                 android:layout_height="wrap_content">
             </TextView>
             <TextView
+                android:paddingStart="16dp"
                 android:id="@+id/dataOfPhoto"
                 android:text="data"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -38,12 +42,21 @@
                 android:layout_height="wrap_content">
             </TextView>
 
-            <com.github.chrisbanes.photoview.PhotoView
+            <com.google.android.material.card.MaterialCardView
                 android:layout_margin="8dp"
-                android:id="@+id/photoViewOfSolByRover"
                 android:layout_width="wrap_content"
-                android:layout_height="400dp"
-                android:src="@drawable/placeholder"/>
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp">
+
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:id="@+id/ImageViewOfSolByRover"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/placeholder"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
 
 
 

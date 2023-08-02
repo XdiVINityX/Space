@@ -75,7 +75,6 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
     override fun onItemClickNewInstanceDetail(photo: ManifestRoverResponseData.PhotoManifest.Photo) {
         val bundle = Bundle()
         bundle.putString(MarsImagesFragment.BUNDLE_KEY,photo.earthDate.toString())
-        Log.d("Clic", "onItemClickNewInstanceDetail: $photo.earthDate")
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
@@ -83,4 +82,5 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
             .add(R.id.container, MarsImagesFragment.newInstance(bundle))
             .commit()
     }
+
 }

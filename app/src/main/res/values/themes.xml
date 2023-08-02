@@ -43,8 +43,4 @@
     <style name="myButtonStyle" parent="Widget.Material3.Button">
         <item name="backgroundTint">@drawable/my_selector_background_button_dark</item>
     </style>
-
-
-
-
 </resources>
