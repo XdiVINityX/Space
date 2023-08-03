@@ -15,20 +15,23 @@ class PhotoViewContainerFragment : Fragment() {
     private var _binding : FragmentPhotoViewContainerBinding? = null
     private val binding get() = _binding!!
 
-    private val url by lazy {
-        arguments?.getString(BUNDLE_KEY) ?: "Пусто"
-    }
+    private lateinit var url : String
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        url = arguments?.getString(BUNDLE_KEY) ?: "Пусто"
         _binding = FragmentPhotoViewContainerBinding.inflate(inflater,container,false )
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (savedInstanceState != null){
+            url = savedInstanceState.getString(BUNDLE_KEY)!!
+        }
         binding.photoView.load(url)
 
         this.hideStatusBar()
@@ -44,6 +47,13 @@ class PhotoViewContainerFragment : Fragment() {
         }
         const val BUNDLE_KEY = "key"
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(BUNDLE_KEY,url)
+    }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
