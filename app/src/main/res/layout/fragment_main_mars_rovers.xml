@@ -5,51 +5,214 @@
     android:layout_height="match_parent"
     tools:context=".view.bottomBar.mars.main.MainMarsRoversFragment">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/roverPerseverance"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:gravity="center"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/roverPerseverance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_margin="8dp"
-                android:text="Perseverance">
-            </TextView>
+                android:layout_margin="10dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="300dp"
-                android:layout_height="200dp"
-                android:layout_margin="10dp"
-                android:src="@drawable/perseverance_rover">
-            </ImageView>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_margin="8dp"
+                        android:text="Perseverance">
+                    </TextView>
 
-            <TextView
-                android:id="@+id/maxSolPerseverance"
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/perseverance_rover">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/maxSolPerseverance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Max Sol: ">
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/maxDatePerseverance"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Max date: ">
+                    </TextView>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+            android:id="@+id/roverCuriosity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_margin="8dp"
+                        android:text="Curiosity">
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/curiosity">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/maxSolCuriosity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Max Sol: ">
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/maxDateCuriosity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Max date: ">
+                    </TextView>
+                </LinearLayout>
+
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/roverOpportunity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Max Sol: ">
+                android:layout_margin="10dp">
 
-            </TextView>
-            <TextView
-                android:id="@+id/maxDatePerseverance"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_margin="8dp"
+                        android:text="Opportunity">
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/opportunity_rover">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/maxSolOpportunity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Max Sol: ">
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/maxDateOpportunity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Max date: ">
+                    </TextView>
+                </LinearLayout>
+
+
+
+
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/roverSpirit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="Max date: ">
-            </TextView>
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:layout_margin="8dp"
+                        android:text="Curiosity">
+                    </TextView>
+
+                    <ImageView
+                        android:layout_width="300dp"
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp"
+                        android:src="@drawable/spirit">
+                    </ImageView>
+
+                    <TextView
+                        android:id="@+id/maxSolSpirit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Max Sol: ">
+
+                    </TextView>
+                    <TextView
+                        android:id="@+id/maxDateSpirit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Max date: ">
+                    </TextView>
+                </LinearLayout>
+
+
+
+
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+
+    </ScrollView>
 
 </FrameLayout>

@@ -2,7 +2,10 @@ package com.example.space.api
 
 import com.example.space.NASA_API_END_POINT_MANIFEST_ROVER_PERSEVERANCE
 import com.example.space.NASA_API_END_POINT_PHOTOS_ROVER_PERSEVERANCE
+import com.example.space.NASA_API_END_POINT_ROVER_CURIOSITY
+import com.example.space.NASA_API_END_POINT_ROVER_OPPORTUNITY
 import com.example.space.NASA_API_END_POINT_ROVER_PERSEVERANCE
+import com.example.space.NASA_API_END_POINT_ROVER_SPIRIT
 import com.example.space.NASA_API_KEY_NAME
 import com.example.space.model.marsRoverPhotos.ManifestRoverResponseData
 import com.example.space.model.marsRoverPhotos.Rovers.RoverResponseData
@@ -16,6 +19,17 @@ interface RoversApi : BaseApiInterface {
     @GET(NASA_API_END_POINT_ROVER_PERSEVERANCE)
     fun getRoverPerseverance(@Query(NASA_API_KEY_NAME) apiKey: String): Call<RoverResponseData>
 
+    @GET(NASA_API_END_POINT_ROVER_CURIOSITY)
+    fun getRoverCuriosity(@Query(NASA_API_KEY_NAME) apiKey: String): Call<RoverResponseData>
+
+    @GET(NASA_API_END_POINT_ROVER_OPPORTUNITY)
+    fun getRoverOpportunity(@Query(NASA_API_KEY_NAME) apiKey: String): Call<RoverResponseData>
+
+    @GET(NASA_API_END_POINT_ROVER_SPIRIT)
+    fun getRoverSpirit(@Query(NASA_API_KEY_NAME) apiKey: String): Call<RoverResponseData>
+
+
+    //manifests
     @GET(NASA_API_END_POINT_MANIFEST_ROVER_PERSEVERANCE)
     fun getManifestRoverPerseverance(@Query(NASA_API_KEY_NAME) apiKey: String): Call<ManifestRoverResponseData>
 

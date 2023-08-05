@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import coil.load
 import com.example.space.databinding.FragmentPhotoViewContainerBinding
-import com.example.space.extensions.hideStatusBar
-import com.example.space.extensions.showStatusBar
+import com.example.space.utils.extensions.hideStatusBar
+import com.example.space.utils.extensions.showStatusBar
 
 
 class PhotoViewContainerFragment : Fragment() {
@@ -22,7 +22,6 @@ class PhotoViewContainerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        url = arguments?.getString(BUNDLE_KEY) ?: "Пусто"
         _binding = FragmentPhotoViewContainerBinding.inflate(inflater,container,false )
         return binding.root
     }
@@ -32,6 +31,8 @@ class PhotoViewContainerFragment : Fragment() {
         if (savedInstanceState != null){
             url = savedInstanceState.getString(BUNDLE_KEY)!!
         }
+        url = arguments?.getString(BUNDLE_KEY) ?: "Пусто"
+
         binding.photoView.load(url)
 
         this.hideStatusBar()

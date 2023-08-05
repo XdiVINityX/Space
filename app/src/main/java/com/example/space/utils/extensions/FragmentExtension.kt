@@ -1,4 +1,4 @@
-package com.example.space.extensions
+package com.example.space.utils.extensions
 
 import android.os.Build
 import android.view.WindowInsets
