@@ -10,7 +10,12 @@ const val NASA_API_END_POINT_ROVER_CURIOSITY = "mars-photos/api/v1/rovers/curios
 const val NASA_API_END_POINT_ROVER_OPPORTUNITY = "mars-photos/api/v1/rovers/opportunity?"
 const val NASA_API_END_POINT_ROVER_SPIRIT = "mars-photos/api/v1/rovers/spirit?"
 
+
 const val NASA_API_END_POINT_MANIFEST_ROVER_PERSEVERANCE = "mars-photos/api/v1/manifests/perseverance?"
+const val NASA_API_END_POINT_MANIFEST_ROVER_CURIOSITY = "mars-photos/api/v1/manifests/curiosity?"
+const val NASA_API_END_POINT_MANIFEST_ROVER_OPPORTUNITY = "mars-photos/api/v1/manifests/opportunity?"
+const val NASA_API_END_POINT_MANIFEST_ROVER_SPIRIT = "mars-photos/api/v1/manifests/spirit?"
+
 const val NASA_API_END_POINT_PHOTOS_ROVER_PERSEVERANCE = "mars-photos/api/v1/rovers/perseverance/photos?"
 
 

@@ -14,7 +14,6 @@ import com.example.space.utils.extensions.showStatusBar
 class PhotoViewContainerFragment : Fragment() {
     private var _binding : FragmentPhotoViewContainerBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var url : String
 
 

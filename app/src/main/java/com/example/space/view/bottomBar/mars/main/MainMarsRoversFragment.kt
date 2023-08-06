@@ -50,14 +50,31 @@ class MainMarsRoversFragment : Fragment() {
         sendRequestRovers()
 
 
+
         binding.roverPerseverance.setOnClickListener {
-            requireActivity()
-                .supportFragmentManager
-                .beginTransaction()
-                .addToBackStack("")
-                .add(R.id.container, MarsSolOfRoverFragment())
-                .commit()
+            openDetail(RoversEnum.PERSEVERANCE)
         }
+        binding.roverCuriosity.setOnClickListener {
+            openDetail(RoversEnum.CURIOSITY)
+        }
+        binding.roverOpportunity.setOnClickListener {
+            openDetail(RoversEnum.OPPORTUNITY)
+        }
+        binding.roverSpirit.setOnClickListener {
+            openDetail(RoversEnum.SPIRIT)
+        }
+
+    }
+
+    private fun openDetail(rover: RoversEnum){
+        val bundle = Bundle()
+        bundle.putString(MarsSolOfRoverFragment.BUNDLE_KEY,rover.toString())
+        requireActivity()
+            .supportFragmentManager
+            .beginTransaction()
+            .addToBackStack("")
+            .add(R.id.container, MarsSolOfRoverFragment.newInstance(bundle))
+            .commit()
     }
 
     private fun sendRequestRovers() {

@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.space.R
 import com.example.space.databinding.FragmentMarsSolOfRoverBinding
 import com.example.space.model.marsRoverPhotos.ManifestRoverResponseData
+import com.example.space.utils.enumRovers.RoversEnum
 import com.example.space.view.bottomBar.mars.secondLevelOfDetail_Images.MarsImagesFragment
 import com.example.space.viewmodel.MarsSolOfRoverViewModel
 import com.example.space.viewmodel.appState.AppStateManifestOfRover
@@ -26,6 +27,7 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
     }
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,19 +39,18 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val rover = RoversEnum.valueOf(arguments!!.getString(BUNDLE_KEY)!!)
 
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             renderData(it)
         }
-
-        viewModel.sendRequestManifestRoverPerseverance()
-
+        viewModel.sendRequestManifestOfRover(rover)
     }
 
     private fun renderData(appStateManifestOfRover: AppStateManifestOfRover) {
         when (appStateManifestOfRover) {
             is AppStateManifestOfRover.Success -> {
-                adapter.setManifestDataPhotosReversed(appStateManifestOfRover.perseveranceResponseData.photoManifest)
+                adapter.setManifestDataPhotosReversed(appStateManifestOfRover.responseData.photoManifest)
                 binding.recyclerSol.adapter = adapter
                 adapter.setClickOnInItemListener(this@MarsSolOfRoverFragment)
                 //TODO()Установить значение адаптера в onViewCreated, но перед этим сделать выполнение   AppStateManifestOfRover.Loading.
@@ -60,12 +61,17 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
             AppStateManifestOfRover.Loading -> TODO()
 
         }
+
     }
 
     companion object {
-        fun newInstance() = MarsSolOfRoverFragment()
+        const val BUNDLE_KEY = "key"
+        fun newInstance(bundle: Bundle) : MarsSolOfRoverFragment  {
+            val fragment = MarsSolOfRoverFragment()
+            fragment.arguments = bundle
+            return fragment
+        }
     }
-
 
     override fun onItemClickNewInstanceDetail(photo: ManifestRoverResponseData.PhotoManifest.Photo) {
         val bundle = Bundle()
@@ -77,7 +83,6 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
             .add(R.id.container, MarsImagesFragment.newInstance(bundle))
             .commit()
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

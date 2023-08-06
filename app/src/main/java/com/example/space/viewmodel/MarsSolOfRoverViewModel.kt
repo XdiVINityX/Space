@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.example.space.BuildConfig
 import com.example.space.model.marsRoverPhotos.ManifestRoverResponseData
 import com.example.space.repositorys.repositoryRovers.RepositoryRoverImp
+import com.example.space.utils.enumRovers.RoversEnum
 import com.example.space.viewmodel.appState.AppStateManifestOfRover
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,13 +17,46 @@ class MarsSolOfRoverViewModel(
 ) : ViewModel() {
 
 
-    fun getLiveData() : MutableLiveData<AppStateManifestOfRover>{
+    fun getLiveData(): MutableLiveData<AppStateManifestOfRover> {
         return liveDataToObserve
     }
 
-    fun sendRequestManifestRoverPerseverance(){
+    fun sendRequestManifestOfRover(rover: RoversEnum) {
+        when (rover) {
+            RoversEnum.PERSEVERANCE -> {
+                sendRequestManifestRoverPerseverance()
+            }
+
+            RoversEnum.CURIOSITY -> {
+                sendRequestManifestRoverCuriosity()
+            }
+
+            RoversEnum.OPPORTUNITY -> {
+                sendRequestManifestRoverOpportunity()
+            }
+
+            RoversEnum.SPIRIT -> {
+                sendRequestManifestRoverSpirit()
+            }
+        }
+
+    }
+    private fun sendRequestManifestRoverPerseverance() {
         repositoryImp.getRoversApi().getManifestRoverPerseverance(BuildConfig.NASA_API_KEY).enqueue(callback)
     }
+
+    private fun sendRequestManifestRoverCuriosity() {
+        repositoryImp.getRoversApi().getManifestRoverCuriosity(BuildConfig.NASA_API_KEY).enqueue(callback)
+    }
+
+    private fun sendRequestManifestRoverOpportunity() {
+        repositoryImp.getRoversApi().getManifestRoverOpportunity(BuildConfig.NASA_API_KEY).enqueue(callback)
+    }
+
+    private fun sendRequestManifestRoverSpirit() {
+        repositoryImp.getRoversApi().getManifestRoverSpirit(BuildConfig.NASA_API_KEY).enqueue(callback)
+    }
+
 
     private val callback = object : Callback<ManifestRoverResponseData>{
         override fun onResponse(call: Call<ManifestRoverResponseData>, response: Response<ManifestRoverResponseData>) {
