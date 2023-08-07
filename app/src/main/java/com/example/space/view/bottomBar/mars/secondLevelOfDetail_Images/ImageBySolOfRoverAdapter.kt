@@ -1,5 +1,6 @@
 package com.example.space.view.bottomBar.mars.secondLevelOfDetail_Images
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,13 +42,19 @@ class ImageBySolOfRoverAdapter : Adapter<ImageBySolOfRoverAdapter.ImageHolder>()
 
     inner class ImageHolder(itemView: View) : ViewHolder(itemView) {
         fun render(photo: Photo){
-            itemView.findViewById<ImageView>(R.id.ImageViewOfSolByRover).load(photo.img_src)
+            var url = photo.img_src
+            if (url.startsWith("http:")){
+               url =  url.replace("http:", "https:")
+            }
+
+            Log.d("MyTag", "render: ${photo.img_src} ")
+            itemView.findViewById<ImageView>(R.id.ImageViewOfSolByRover).load(url)
             itemView.findViewById<TextView>(R.id.solOfPhoto).text = "Sol: ${photo.sol.toString()}"
             itemView.findViewById<TextView>(R.id.dataOfPhoto).text ="Data: ${photo.earth_date.toString()}"
             itemView.findViewById<TextView>(R.id.roverName).text = photo.rover.name
 
             itemView.findViewById<ImageView>(R.id.ImageViewOfSolByRover).setOnClickListener{
-                listener.onPhotoClickListener(photo)
+                listener.onPhotoClickListener(url)
 
             }
         }

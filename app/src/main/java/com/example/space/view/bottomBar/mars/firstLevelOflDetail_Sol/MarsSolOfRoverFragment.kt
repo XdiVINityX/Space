@@ -21,9 +21,11 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
     private var _binding: FragmentMarsSolOfRoverBinding? = null
     private val binding get() = _binding!!
     private val adapter = RoverSolAdapter()
-
     private val viewModel: MarsSolOfRoverViewModel by lazy {
         ViewModelProvider(this).get(MarsSolOfRoverViewModel::class.java)
+    }
+    private val rover by lazy {
+        RoversEnum.valueOf(arguments!!.getString(BUNDLE_KEY)!!)
     }
 
 
@@ -39,7 +41,6 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val rover = RoversEnum.valueOf(arguments!!.getString(BUNDLE_KEY)!!)
 
         viewModel.getLiveData().observe(viewLifecycleOwner) {
             renderData(it)
@@ -50,11 +51,11 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
     private fun renderData(appStateManifestOfRover: AppStateManifestOfRover) {
         when (appStateManifestOfRover) {
             is AppStateManifestOfRover.Success -> {
+                adapter.setRover(rover)
                 adapter.setManifestDataPhotosReversed(appStateManifestOfRover.responseData.photoManifest)
                 binding.recyclerSol.adapter = adapter
                 adapter.setClickOnInItemListener(this@MarsSolOfRoverFragment)
                 //TODO()Установить значение адаптера в onViewCreated, но перед этим сделать выполнение   AppStateManifestOfRover.Loading.
-                Log.d("MyTagMarsSolOfRoverFragment", "renderData $appStateManifestOfRover.perseveranceResponseData ")
             }
 
             is AppStateManifestOfRover.Error -> TODO()
@@ -73,9 +74,11 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
         }
     }
 
-    override fun onItemClickNewInstanceDetail(photo: ManifestRoverResponseData.PhotoManifest.Photo) {
+    override fun onItemClickNewInstanceDetailImages(photo: ManifestRoverResponseData.PhotoManifest.Photo,rover: RoversEnum) {
+        Log.d("myTag", "onItemClickNewInstanceDetail: $rover ")
         val bundle = Bundle()
-        bundle.putString(MarsImagesFragment.BUNDLE_KEY,photo.earthDate.toString())
+        bundle.putString(MarsImagesFragment.BUNDLE_KEY_EARTH_DATA,photo.earthDate)
+        bundle.putString(MarsImagesFragment.BUNDLE_KEY_ROVER,rover.toString())
         requireActivity()
             .supportFragmentManager
             .beginTransaction()
@@ -88,5 +91,6 @@ class MarsSolOfRoverFragment : Fragment(), OnItemViewClickListener {
         super.onDestroyView()
         _binding = null
     }
+
 
 }

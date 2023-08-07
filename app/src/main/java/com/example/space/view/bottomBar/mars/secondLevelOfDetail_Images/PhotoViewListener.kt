@@ -4,6 +4,6 @@ import com.example.space.model.marsRoverPhotos.photos.Photo
 
 interface OnPhotoViewClickListener {
 
-    fun onPhotoClickListener(photo : Photo)
+    fun onPhotoClickListener(url : String)
 
 }

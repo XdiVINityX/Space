@@ -17,5 +17,8 @@ const val NASA_API_END_POINT_MANIFEST_ROVER_OPPORTUNITY = "mars-photos/api/v1/ma
 const val NASA_API_END_POINT_MANIFEST_ROVER_SPIRIT = "mars-photos/api/v1/manifests/spirit?"
 
 const val NASA_API_END_POINT_PHOTOS_ROVER_PERSEVERANCE = "mars-photos/api/v1/rovers/perseverance/photos?"
+const val NASA_API_END_POINT_PHOTOS_ROVER_CURIOSITY  = "mars-photos/api/v1/rovers/curiosity/photos?"
+const val NASA_API_END_POINT_PHOTOS_ROVER_OPPORTUNITY = "mars-photos/api/v1/rovers/opportunity/photos?"
+const val NASA_API_END_POINT_PHOTOS_ROVER_SPIRIT = "mars-photos/api/v1/rovers/spirit/photos?"
 
 

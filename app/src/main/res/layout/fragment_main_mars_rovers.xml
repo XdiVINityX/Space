@@ -177,7 +177,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:layout_margin="8dp"
-                        android:text="Curiosity">
+                        android:text="Spirit">
                     </TextView>
 
                     <ImageView

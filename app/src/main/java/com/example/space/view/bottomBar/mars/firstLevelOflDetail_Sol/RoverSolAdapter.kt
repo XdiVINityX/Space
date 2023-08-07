@@ -9,11 +9,13 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.space.R
 import com.example.space.model.marsRoverPhotos.ManifestRoverResponseData
+import com.example.space.utils.enumRovers.RoversEnum
 
 class RoverSolAdapter() : RecyclerView.Adapter<RoverSolAdapter.RoverSolHolder>() {
 
     private lateinit var manifestRoverDataPhotos : List<ManifestRoverResponseData.PhotoManifest.Photo>
     private lateinit var listener: OnItemViewClickListener
+    private lateinit var rover: RoversEnum
 
     fun setManifestDataPhotosReversed(value : ManifestRoverResponseData.PhotoManifest) {
        manifestRoverDataPhotos = value.photos.reversed()
@@ -21,6 +23,9 @@ class RoverSolAdapter() : RecyclerView.Adapter<RoverSolAdapter.RoverSolHolder>()
 
     fun setClickOnInItemListener(fragmentMain : OnItemViewClickListener){
         listener = fragmentMain
+    }
+    fun setRover(roverArg: RoversEnum){
+        rover = roverArg
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RoverSolHolder {
@@ -42,7 +47,7 @@ class RoverSolAdapter() : RecyclerView.Adapter<RoverSolAdapter.RoverSolHolder>()
             itemView.findViewById<TextView>(R.id.roverDateOfMission).text = "Date: ${(photoElement.earthDate.toString())} "
             itemView.findViewById<TextView>(R.id.roverNumbersOfPhoto).text = "Numbers of photo: ${(photoElement.totalPhotos.toString())} "
             itemView.setOnClickListener(){
-                listener.onItemClickNewInstanceDetail(photoElement)
+                listener.onItemClickNewInstanceDetailImages(photoElement, rover)
             }
 
         }

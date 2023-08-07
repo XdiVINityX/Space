@@ -4,7 +4,10 @@ import com.example.space.NASA_API_END_POINT_MANIFEST_ROVER_CURIOSITY
 import com.example.space.NASA_API_END_POINT_MANIFEST_ROVER_OPPORTUNITY
 import com.example.space.NASA_API_END_POINT_MANIFEST_ROVER_PERSEVERANCE
 import com.example.space.NASA_API_END_POINT_MANIFEST_ROVER_SPIRIT
+import com.example.space.NASA_API_END_POINT_PHOTOS_ROVER_CURIOSITY
+import com.example.space.NASA_API_END_POINT_PHOTOS_ROVER_OPPORTUNITY
 import com.example.space.NASA_API_END_POINT_PHOTOS_ROVER_PERSEVERANCE
+import com.example.space.NASA_API_END_POINT_PHOTOS_ROVER_SPIRIT
 import com.example.space.NASA_API_END_POINT_ROVER_CURIOSITY
 import com.example.space.NASA_API_END_POINT_ROVER_OPPORTUNITY
 import com.example.space.NASA_API_END_POINT_ROVER_PERSEVERANCE
@@ -45,8 +48,29 @@ interface RoversApi : BaseApiInterface {
     @GET(NASA_API_END_POINT_MANIFEST_ROVER_SPIRIT)
     fun getManifestRoverSpirit(@Query(NASA_API_KEY_NAME) apiKey: String): Call<ManifestRoverResponseData>
 
+
+    //photos
+
     @GET(NASA_API_END_POINT_PHOTOS_ROVER_PERSEVERANCE)
     fun getPhotosOfByPerseverance(
+        @Query(NASA_API_KEY_NAME) apiKey: String,
+        @Query("earth_date") earthDate: String
+    ): Call<PhotosOfSolByRoverResponseData>
+
+    @GET(NASA_API_END_POINT_PHOTOS_ROVER_CURIOSITY)
+    fun getPhotosOfByCuriosity(
+        @Query(NASA_API_KEY_NAME) apiKey: String,
+        @Query("earth_date") earthDate: String
+    ): Call<PhotosOfSolByRoverResponseData>
+
+    @GET(NASA_API_END_POINT_PHOTOS_ROVER_OPPORTUNITY)
+    fun getPhotosOfByOpportunity(
+        @Query(NASA_API_KEY_NAME) apiKey: String,
+        @Query("earth_date") earthDate: String
+    ): Call<PhotosOfSolByRoverResponseData>
+
+    @GET(NASA_API_END_POINT_PHOTOS_ROVER_SPIRIT)
+    fun getPhotosOfBySpirit(
         @Query(NASA_API_KEY_NAME) apiKey: String,
         @Query("earth_date") earthDate: String
     ): Call<PhotosOfSolByRoverResponseData>
